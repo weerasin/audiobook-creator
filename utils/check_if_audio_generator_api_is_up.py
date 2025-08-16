@@ -18,9 +18,13 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 import os
 import traceback
-from dotenv import load_dotenv
 
-load_dotenv()
+# Load environment variables if dotenv is available
+try:
+    from dotenv import load_dotenv
+    load_dotenv()
+except ImportError:
+    pass
 
 TTS_MODEL = os.environ.get("TTS_MODEL", "kokoro")
 
